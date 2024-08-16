@@ -37,7 +37,7 @@ title_words = (
 other_title_words = (
     "problem", "disclaimer", "introduction", "method", "methodology",
     "result", "discussion", "acknowledgement", "reference",
-    "appendix", "appendices", "author",
+    "appendi", "author", 
     "detail", "specification", "requirement", "implementation",
     "contribution", "analysis", "evaluation", 
     "content", "overview", "review", "means", "mechanism",
