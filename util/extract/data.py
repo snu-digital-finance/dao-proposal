@@ -1,6 +1,7 @@
 from math import inf
 from dataclasses import dataclass
 
+
 @dataclass
 class Limit:
     lower: int
@@ -9,6 +10,7 @@ class Limit:
     def is_valid_length(self, value):
         return self.lower <= value <= self.upper
 
+
 @dataclass
 class Category:
     name: str
@@ -16,18 +18,18 @@ class Category:
     words: tuple[str]
     not_words: tuple[str] = tuple()
     other_words: tuple[str] = tuple()
-    
+
 
 title_words = (
     "in short", "result",
     "summary", "objective",  "keyword",
     "key points", "category",
-    "motivation", "rationale", "background", 
+    "motivation", "rationale", "background",
     "tl;dr", "tldr", "tl,dr", "tl;dr:"
-    "benefit", "recommendation", "purpose", 
+    "benefit", "recommendation", "purpose",
     "the proposal",
     "goal", " aim ", "conclusion",
-    "synopsis", "abstract", 
+    "synopsis", "abstract",
     # "therefore" <-> here
     # "solution",
     # aim <-> claim
@@ -37,9 +39,9 @@ title_words = (
 other_title_words = (
     "problem", "disclaimer", "introduction", "method", "methodology",
     "result", "discussion", "acknowledgement", "reference",
-    "appendi", "author", 
+    "appendi", "author",
     "detail", "specification", "requirement", "implementation",
-    "contribution", "analysis", "evaluation", 
+    "contribution", "analysis", "evaluation",
     "content", "overview", "review", "means", "mechanism",
     "drawback", "limitation", "challenge", "issue", "concern",
     "vote", "overall cost", "risk", "candidate",
@@ -93,7 +95,7 @@ body_for_sim = {
             "disclaimer:": "disclaimer",
             "specfication:": "specification",
             # "specifications": "specification",
-            # "authors": "author",   
+            # "authors": "author",
         }
     },
     "deleted": {
@@ -109,9 +111,26 @@ body_for_sim = {
             "Read more:",
             "[](", "[ ](",
             "[Link](",
+            "[Image source](",
+            "[Link to proposal discussion](",
+            "Link to Discussions:",
+            "*[This proposal is summarized due to technical limitations. To view it complete and vote on it, visit the DCL DAO Governance dApp](",
         ],
         "specific": {
+            "mocana.eth": [
+                "-------------- ApeCoin DAO Snapshot Contents --------------",
+                "------------ ApeCoin DAO Snapshot Contents --------------",
+                "The below contents are duplicated from the ApeCoin DAO Snapshot:",
+                "The below contents are duplicated from ApeCoin DAO's Snapshot Space, which you can view on this original link:",
+                "Moca DAO members will vote with their Mocaverse NFTs here on our Moca DAO Snapshot Space. Based on those results, delegated voting will then be carried out on the ApeCoin DAO Snapshot Space with the Mocaverseape.eth multi-signature wallet.",
+                "Moca DAO members will vote with Mocaverse NFTs on our Moca DAO Snapshot Space. Delegated voting will then be done on the ApeCoin DAO Snapshot Space with the Mocaverseape.eth wallet.",
+                "Members will vote with Moca NFTs on our Moca Snapshot. Delegated voting will then be done on the ApeCoin DAO Snapshot with the Mocaverseape.eth wallet.",
+                "Read, research, discuss - See what you think, fellow Mocas! Make your voices heard.",
+                "Link to the full proposal:",
+                "The AIP implementation is administered by the Ape Foundation. Implementation may be immaterially or materially altered to optimise for security, usability, to protect APE holders, and otherwise to effect the intent of the AIP. Any material deviations from an AIP, as initially approved, will be disclosed to the APE holder community."
+            ],
             "balancer.eth": [
+                "[This proposal is also on Balancer's forum.](",
                 "PR with Payload", "Payload with PR",
                 "This proposal appears on [Balancer's forum](",
                 "This proposal also appears on [Balancer's forum](",
@@ -129,6 +148,10 @@ body_for_sim = {
                 "Full details and discussions thus far can be found at:",
             ],
             "aave.eth": [
+                "TokenLogic and karpatkey receive no payment for this proposal. TokenLogic and karpatkey are both delegates within the Aave community.",
+                "Disclaimer Gauntlet reserves the right to not move forward with any parameter changes recommended in Snapshot polls, if market conditions change meaningfully.",
+                "By approving this proposal, you agree that any services provided by Gauntlet shall be governed by the terms of service available at gauntlet.network/tos",
+                "The ACI is not presenting this ARFC on behalf of any third party and is not compensated for creating this ARFC.",
                 "[Forum Discussion](",
                 "For more details, please see [Gauntlet's Parameter Recommendation Methodology]( and [Gauntlet's Model Methodology](",
                 ":", "**", "*:*"
@@ -136,16 +159,27 @@ body_for_sim = {
             "aavegotchi.eth": [
                 "Author:", "Gotchi ID:", "Authors:",
                 "Jesse | gldnXross", "Dr Wagmi", "Maxicrouton",
-                "**", 
+                "**",
             ],
             "diadao.eth": [
                 "[See source](",
                 "Learn more at",
             ],
             "index-coop.eth": [
+                "using DPI.", "using Index Products.",
+                "Quorum for this vote is ",
+                "This proposal is for voting on Uniswap's proposal",
+                "This MetaGovernance vote is for voting on Compound's latest proposal using Index Products.",
+                "This MetaGovernance vote is for voting on Uniswap's latest proposal using Index Products.",
+                "This MetaGovernance vote is for voting on Uniswap's latest proposal using UNI locked in Index Products.",
+                "Index holder'as voting power is ~5% of the Uniswap proposal quorum",
+                "This MetaGovernance vote is for voting on Uniswap's latest proposal using Index Products.",
                 "This proposal is for voting on Aave's proposal",
                 "This proposal is for voting on Compound's proposal",
+                "The quorum for this vote is ", "INDEX.", "INDEX - *[5% Circulating Supply](",
                 "Please review the proposal here:",
+                "Please review the proposal in the link bellow",
+                "Please review the governance discussion of the proposal in the link below:",
                 "Please review the on-chain vote of the proposal in the link below:",
                 "*(", "Source [",
             ],
@@ -163,7 +197,7 @@ body_for_sim = {
                 "Details of the DCL proposal:",
                 "(",
             ],
-            "lido-snapshot.eth": [ # 직접 분류하기
+            "lido-snapshot.eth": [  # 직접 분류하기
                 "In order to take part, check your eligibility [here](",
                 "Claim with official link:",
                 "Claim drop here:",
@@ -188,7 +222,7 @@ body_for_sim = {
                 'This "vote" lets you',
             ],
             "gov.radworks.eth": [
-                "* Please formally review the [official draft]( of the RGP proposal on Discourse before voting. It includes full details on the proposed program structure and implementation. *",  
+                "* Please formally review the [official draft]( of the RGP proposal on Discourse before voting. It includes full details on the proposed program structure and implementation. *",
             ],
             "alchemixstakers.eth": [
                 "Please read the full proposal here:",
@@ -215,22 +249,30 @@ body_for_sim = {
                 "You can read the [full specification here](",
                 "[Forum Post](",
             ],
-            "qidao.eth": [ # 직접 분류하기 좋음
+            "qidao.eth": [  # 직접 분류하기 좋음
                 "*Please read the entire proposal before voting, as there are several factors to consider.*",
             ],
             "stakewise.eth": [  # 직접 분류하기 좋음
                 "Description and discussions about the proposal are available at",
             ],
             "snapshot.dcl.eth": [
+                "This proposal is summarized due to technical limitations. To view it complete and vote on it, visit the DCL DAO Governance dApp",
+                "Should the following ", ": up to $",
+                "months vesting (1 month cliff) grant in the ",
+                "one-time payment grant in the ",
+                "grant in the ",
+                "be approved?",
+
                 "Email address",
                 "Relevant Links",
                 "> by",
                 "*[Vote on this proposal on the Decentraland DAO](",
                 "Manager Addresses",
                 "(Zino)", "(Huepow)", "(Yemel)",
+                "[]"
             ],
 
-            "frax.eth": [ # "notng"는 줄임말 같다...?
+            "frax.eth": [  # "notng"는 줄임말 같다...?
                 "Authors\nFrax Core Team", "Author\nFrax Core Team",
                 "*Authors*\nFrax Core Team",
                 "Author\nC2tP (Convex Finance)", "*Author*\nC2tP (Convex Finance)",
@@ -248,7 +290,7 @@ body_for_sim = {
                 "Nomination:",
                 "To vote with the above in mind, please review each of the nominations via the discourse link:",
             ],
-            "cakevote.eth": [ #  Max Stake per Wallet:
+            "cakevote.eth": [  # Max Stake per Wallet:
                 "Please refer to the following [*link*]( for migration instructions",
                 "(Figures are for illustration purposes only.)",
                 "Refer to the [*IFO participation guide*]( and [*iCAKE article*](",
@@ -262,7 +304,7 @@ body_for_sim = {
                 "Author\nCarlos Gomes",
                 "Author\npastacartel",
             ],
-            "shapeshiftdao.eth": [ # Team
+            "shapeshiftdao.eth": [  # Team
                 "The details below expand upon the [budget spreadsheet](",
             ],
             "buzzedbears.eth": [
@@ -274,7 +316,7 @@ body_for_sim = {
             "0xgov.eth": [
                 "Forum post:",
             ],
-            "mainnet.ssvnetwork.eth": [ ## 그냥 분류해도 될 듯
+            "mainnet.ssvnetwork.eth": [  # 그냥 분류해도 될 듯
                 "In case of urgent questions here are my contacts:",
                 # "Company/requester\n* TableStakes"
                 # Company/Requestor
@@ -288,13 +330,15 @@ body_for_sim = {
                 "Dive into the specifics below to learn about the launch date and the transformative changes it holds for our vibrant community.",
                 "Take a moment to check your eligibility for a potential Airdrop by exploring additional details [HERE]( Seize this golden opportunity to become an integral part of the dynamic developments unfolding within the dydx community!",
             ],
+            "latticegov.eth": [
+                "Please carefully read the proposal thread on the governance forum before you vote:",
+            ],
 
-            
             "arbitrumfoundation.eth": [
                 "link to application",
                 "link to initial stip application:\nlink to addendum:",
             ],
-            
+
             "cvx.eth": [
                 "Please read gauge voting rules before voting:",
                 "Be sure to also consult the voting dashboard for gauge voting insights:",
@@ -317,12 +361,14 @@ body_for_sim = {
                 "As [*announced*]( to the community,",
                 "Extra juicy!",
             ],
-            "bullsontheblock.eth": [ # https://snapshot.org/#/bullsontheblock.eth/proposal/0x3608e288ba411b2c6f7f65c4195665ab603823e94af22a99bdc6de23bb2cf0b1
+            "bullsontheblock.eth": [  # https://snapshot.org/#/bullsontheblock.eth/proposal/0x3608e288ba411b2c6f7f65c4195665ab603823e94af22a99bdc6de23bb2cf0b1
+                "IMPORTANT NOTE: The BOTB DAO Snapshot is a mirrored version of the ApeCoin DAO Snapshot.",
                 "Link to the full proposal:",
                 "*The AIP implementation is administered by the Ape Foundation. Implementation may be immaterially or materially altered to optimise for security, usability, to protect APE holders, and otherwise to effect the intent of the AIP. Any material deviations from an AIP, as initially approved, will be disclosed to the APE holder community.*",
                 "BOTB Holders may cast their vote via BOTB DAO Snapshot. All BOTBs are encouraged to thoroughly understand the proposal prior to casting votes in order to make neutral and well-informed decisions.",
                 "[Please continue reading the rest of this AIP on the ApeCoin DAO Snapshot and Discourse]",
                 "Read, research, discuss - See what you think, fellow BOTBs! Make your voices heard.",
+                "**",
             ],
             "jbdao.eth": [
                 "[Discussion Thread]( | [IPFS](",
@@ -332,7 +378,7 @@ body_for_sim = {
                 "Notion Proposal",
             ],
             "bitdao.eth": [
-                "This proposal is", "co-authored by", "authored by", 
+                "This proposal is", "co-authored by", "authored by",
                 "[cateatpeanut](",
                 "the Mantle Economics Committee ([MIP-25](",
                 "Mirana Ventures and the Mantle Core Contributor Team.",
@@ -342,7 +388,7 @@ body_for_sim = {
                 "Doodle ID for kudos:",
                 ">", "**",
             ],
-            "pushdao.eth": [ # 직접 분류하기 좋음
+            "pushdao.eth": [  # 직접 분류하기 좋음
                 "1. Go to [",
                 "2. Email",
                 "Link to the Proposal Draft on Governance Forum:",
@@ -352,7 +398,7 @@ body_for_sim = {
             ],
             "grailers.eth": [
                 "Authors:",
-                "As discussed in channel",  
+                "As discussed in channel",
             ],
             "beanstalkfarms.eth": [
                 "Proposer\nBeanstalk Farms",
@@ -361,13 +407,13 @@ body_for_sim = {
                 "Please read Liquidity Mining weights voting rules before voting:",
                 "Be sure also to engage in the",
             ],
-            "bestfork.eth":[
+            "bestfork.eth": [
                 "Link to [WIP",
             ],
-            "krausehouse.eth":[
+            "krausehouse.eth": [
                 "This contributor may submit a request for *up to* the specified amount based on self-assessment of their work.",
             ],
-            "gearbox.eth": [ # 직접 분류하기 좋음
+            "gearbox.eth": [  # 직접 분류하기 좋음
                 "Author:", "*Author*",
             ],
             "hbot.eth": [
@@ -405,10 +451,10 @@ body_for_sim = {
             "golflinks.eth": [
                 "Proposal Name: [Proposal",
             ],
-            "futera.eth": [ # 마지막 짧은 문장 삭제해도 될 듯
+            "futera.eth": [  # 마지막 짧은 문장 삭제해도 될 듯
                 "Choose your favourite from:",
             ],
-            "floordao.eth": [ # 직접 분류하기 좋음
+            "floordao.eth": [  # 직접 분류하기 좋음
                 "- Discord: [FloorDAO](",
                 "- [Forum](",
                 "- [FloorDAO twitter](",
@@ -437,7 +483,7 @@ body_for_sim = {
                 "CryptoScottie", "verbdan", "Mutant Ape", "and Zeekay",
                 "Details of Mechanics:"
             ],
-            "apecoin.eth": [ # 결국 zero cost로 끝나는 게 많음
+            "apecoin.eth": [  # 결국 zero cost로 끝나는 게 많음
                 "Link to the full proposal:",
                 "Link to the Nomination Announcement:",
                 "Link to the Nomination Profiles:",
@@ -462,7 +508,7 @@ body_for_sim = {
                 "After the voting in SnapShot is done, the Muuu Finance team will vote for Kagla Finance.",
             ],
             "metfi.io": [
-                "vote-discussion channel.",  
+                "vote-discussion channel.",
             ],
             "beanstalkdao.eth": [
                 "Proposer Wallet: (",
@@ -482,7 +528,7 @@ body_for_sim = {
                 "- [Ongoing forum conversation](",
                 "- Selected discord discussions: [1]( [2](",
             ],
-            "kalmyapp.eth": [ # 직접 분류하기 좋음
+            "kalmyapp.eth": [  # 직접 분류하기 좋음
                 "Read about the specific calculations used in this blog:",
                 "- [Visit our Website](\n- [Follow us on Twitter (X)](\n- [DeFi Wars - Vault Request Form](",
             ],
@@ -520,10 +566,16 @@ body_for_sim = {
                 # "The following provides an overview of the objectives of the Community Leaders for the upcoming quarter:",
             ],
             "hvax.eth": [
+                "This temperature check will gauge delegates' interest/support for deploying the onboarding package to",
+                "TokenLogic and karpatkey receive no payment for this proposal. TokenLogic and karpatkey are both delegates within the Aave community.",
+                "By approving this proposal, you agree that any services provided by Gauntlet shall be governed by the terms of service available at gauntlet.network/tos",
+                "By approving this proposal, you agree that any services provided by", "shall be governed by the", "[Terms of Service](", "that were updated as of",
+                "[Full proposal and forum discussion](",
                 "- Implementation: [AaveV3Ethereum](",
                 "- Tests: [AaveV3Ethereum](",
                 "- [Snapshot](",
                 "- [Discussion](",
+                "**",
             ],
             "gauges.equilibria-xeqb.eth": [
                 "Here are more info about",

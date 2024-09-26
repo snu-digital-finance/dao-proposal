@@ -1,3 +1,6 @@
+# Include
+!/ppt/ppt.pdf
+
 # Ignore Python cache files
 __pycache__/
 *.pyc
@@ -9,3 +12,4 @@ __pycache__/
 *.zip
 *.pkl
 *.txt
+*.pdf

@@ -1,11 +1,18 @@
-Flow
+# Workflow
 
-1. api.ipynb
+1. 🖥️ api.ipynb
 
-- keyword.ipynb
+   - 📑 spaces.xlsx
+   - 📑 proposals_preprocess.xlsx
+   - 🖥️ keyword.ipynb
+     - 📑 proposals_preprocess_keyword.xlsx
 
-2. remove_sim.ipynb
+2. 🖥️ remove_sim.ipynb
 
-- proposal_EDA.ipynb
+   - 📑 proposals_preprocess_cleaned.xlsx: add `*_lower` column
+   - 🖥️ proposal_EDA.ipynb
 
-3. find_sim.ipynb
+3. 🖥️ find_sim.ipynb
+   - 📑 sample_category.xlsx
+   - 📑 similar_categorized_filtered.xlsx
+   - 📑 proposals_preprocess_nlp.xlsx: add `*_nlp` column
