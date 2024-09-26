@@ -13,6 +13,10 @@
    - 🖥️ proposal_EDA.ipynb
 
 3. 🖥️ find_sim.ipynb
+
    - 📑 sample_category.xlsx
    - 📑 similar_categorized_filtered.xlsx
    - 📑 proposals_preprocess_nlp.xlsx: add `*_nlp` column
+
+4. 🖥️ analysis.ipynb
+5. 🖥️ analysis_adopt.ipynb
