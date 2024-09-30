@@ -21,8 +21,9 @@ TOP20 = [
     "uniswapgovernance.eth"
 ]
 
+
 class DAO:
-    def fetch_spaces(self, skip:int=0) -> str:
+    def fetch_spaces(self, skip: int = 0) -> str:
         return """ query Spaces{
                       spaces(
                   first: 1000,
@@ -114,9 +115,8 @@ class DAO:
           followersCount7d
             }}
         """ % skip
-  
 
-    def fecth_proposals(self, space:str, skip:int=0) -> str:
+    def fecth_proposals(self, space: str, skip: int = 0) -> str:
         return """
                         
           query Proposals {
@@ -173,16 +173,16 @@ class DAO:
             }
           }
         """ % (skip, space)
-    
-    def fetch_votes(self, proposal_id:str, skip:int=0, ) -> str:
-      return """
+
+    def fetch_votes(self, proposal_id: str, skip: int = 0, isDesc: bool = True) -> str:
+        return """
       query Votes {
         votes(
           first: 1000, 
           skip: %d, 
           where: {proposal: "%s"}, 
           orderBy: "created", 
-          orderDirection: desc) 
+          orderDirection: %s) 
         {
           id
           vp
@@ -204,4 +204,4 @@ class DAO:
           vp_by_strategy
         }
       }
-      """ % (skip, proposal_id)
+      """ % (skip, proposal_id, "desc" if isDesc else "asc")
