@@ -158,6 +158,7 @@ class DAO:
           snapshot
           strategies {
             network
+            name
             params
           }
           validation {
